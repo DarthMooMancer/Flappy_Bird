@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 3.16)
+project(flappy_bird)
+set(CMAKE_C_STANDARD 23)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+include_directories(include)
+
+set(SOURCES
+	src/main.cpp
+	src/window.cpp
+	src/input.cpp
+)
+
+add_executable(flappy_bird ${SOURCES})
+
+find_package(Curses REQUIRED)
+include_directories(${CURSES_INCLUDE_DIR})
+target_link_libraries(flappy_bird ${CURSES_LIBRARIES})
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

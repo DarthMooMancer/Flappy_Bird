@@ -8,6 +8,7 @@ set(SOURCES
 	src/main.cpp
 	src/window.cpp
 	src/input.cpp
+	src/elements.cpp
 )
 
 add_executable(flappy_bird ${SOURCES})

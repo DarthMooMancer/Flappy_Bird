@@ -3,8 +3,10 @@
 #include <chrono>
 #include <thread>
 
-void Window::update_display() {
+void Window::update_display(Bird &bird) {
 	for(std::array<char, COL> &row : m_board) { row.fill('.'); }
+
+	m_board[bird.m_body.m_row][bird.m_body.m_col] = '*';
 
 	std::cout << "\033[H" << std::flush;
 	for(std::array<char, COL> &row : m_board) {

@@ -4,7 +4,7 @@
 
 struct Input {
 	int _getch = 0;
-	void get_input(bool &running, Bird &bird);
+	void get_input(bool &running, bool &pause, Bird &bird);
 };
 
 #endif

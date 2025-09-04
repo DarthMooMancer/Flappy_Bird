@@ -9,10 +9,15 @@ int main() {
 	Input input;
 	Bird bird;
 	bool running = true;
+	bool pause = false;
 
-	std::thread input_thread(&Input::get_input, &input, std::ref(running), std::ref(bird));
+	std::thread input_thread(&Input::get_input, &input, std::ref(running), std::ref(pause), std::ref(bird));
 	
 	while (running) {
+		if(pause) {
+			continue;
+		}
+		bird.move();
 		window.update_display(bird);
 	}
 

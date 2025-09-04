@@ -8,6 +8,7 @@
 struct Window {
 	std::array<std::array<char, COL>, ROW> m_board = {};
 	void update_display(Bird &bird);
+	void tick(int fps);
 };
 
 #endif

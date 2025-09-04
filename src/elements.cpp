@@ -1,6 +1,10 @@
 #include "elements.hpp"
 
-Point::Point() {
-	m_row = 0;
-	m_col = 0;
+void Bird::move() {
+	if(m_fly) {
+		m_body.m_row--;
+		m_fly = false;
+	} else {
+		m_body.m_row++;
+	}
 }

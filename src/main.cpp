@@ -7,14 +7,6 @@
 #include "input.hpp"
 #include "elements.hpp"
 
-void _add_pipe(std::vector<Pipe> &p) {
-	p.push_back(Pipe());
-}
-
-void _delete_pipe(std::vector<Pipe> &p) {
-	p.erase(p.begin());
-}
-
 int main() {
 	std::srand(std::time(0));
 	Window window;
@@ -23,22 +15,21 @@ int main() {
 	bool running = true;
 	bool pause = false;
 	int frames = 0;
-	std::vector<Pipe> pipes;
 
+	std::vector<Pipe> pipes = { Pipe() };
 	std::thread input_thread(&Input::get_input, &input, std::ref(running), std::ref(pause), std::ref(bird));
-	_add_pipe(pipes);
 	
 	while (running) {
+		bird.move();
+		bird.check_collision();
 		if(pause) {
 			continue;
 		}
-		bird.move();
-		bird.check_collision();
 		for(int i = 0; i < pipes.size(); i++) {
 			pipes.at(i).move();
 		}
 		if(pipes.front().m_nodes->m_col < 3) {
-			_delete_pipe(pipes);
+			pipes.erase(pipes.begin());
 		}
 		for(int j = 0; j < pipes.size(); j++) {
 			for(int i = 0; i < pipes.front().m_size; i++) {
@@ -52,7 +43,7 @@ int main() {
 		window.update_display(bird, pipes);
 		frames++;
 		if(frames > 4) {
-			_add_pipe(pipes);
+			pipes.push_back(Pipe());
 			frames = 0;
 		}
 	}

@@ -1,5 +1,4 @@
 #include <ncurses.h>
-#include <iostream>
 #include "input.hpp"
 
 void Input::get_input(bool &running, bool &pause, Bird &bird) {
@@ -9,7 +8,6 @@ void Input::get_input(bool &running, bool &pause, Bird &bird) {
 		noecho();
 
 		_getch = getch();
-		std::cout << _getch << std::endl;
 
 		endwin();
 		if(_getch == 32) {

@@ -40,6 +40,14 @@ int main() {
 		if(pipes.front().m_nodes->m_col < 3) {
 			_delete_pipe(pipes);
 		}
+		for(int i = 0; i < pipes.front().m_size; i++) {
+			if(pipes.front().m_nodes[i].m_col == bird.m_body.m_col) {
+				if(pipes.front().m_nodes[i].m_row == bird.m_body.m_row) {
+					running = false;
+					std::cout << "You died!" << std::endl;
+				}
+			}
+		}
 		window.update_display(bird, pipes);
 		frames++;
 		if(frames > 4) {

@@ -8,3 +8,9 @@ void Bird::move() {
 		m_body.m_row++;
 	}
 }
+
+void Bird::check_collision() {
+	if(m_body.m_row <= 0 || m_body.m_row > ROW - 1) {
+		// Add velocity
+	}
+}

@@ -10,7 +10,6 @@ struct Point {
 	int m_col;
 	char m_symbol;
 	void assign(int row, int col);
-	void to_string();
 };
 
 struct Bird {

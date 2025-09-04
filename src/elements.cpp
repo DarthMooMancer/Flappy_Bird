@@ -6,10 +6,6 @@ void Point::assign(int row, int col) {
 	m_col = col;
 }
 
-void Point::to_string() {
-	std::cout << "(" << m_row << ", " << m_col << ")" << std::endl;
-}
-
 void Bird::move() {
 	if(m_fly) {
 		m_body.m_row--;

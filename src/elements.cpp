@@ -30,9 +30,10 @@ Pipe::Pipe() {
 	int _start = (rand() % (ROW - 3));
 	for(int i = 0; i < m_size; i++) {
 		m_nodes[i].assign(i, COL - 1);
+		m_nodes[i].m_symbol = '|';
 	}
 	for(int i = _start; i < _start + 3; i++) {
-		m_nodes[i].assign(ROW, COL);
+		m_nodes[i].m_symbol = ' ';
 	} 
 }
 

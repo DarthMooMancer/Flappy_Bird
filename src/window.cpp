@@ -10,10 +10,12 @@ void Window::tick(int fps) {
 void Window::update_display(Bird &bird, std::vector<Pipe> pipes) {
 	for(std::array<char, COL> &row : m_board) { row.fill('.'); }
 
-	m_board[bird.m_body.m_row][bird.m_body.m_col] = '*';
+	m_board[bird.m_body.m_row][bird.m_body.m_col] = bird.m_body.m_symbol;
 	for(int i = 0; i < pipes.size(); i++) {
 		for(int j = 0; j < pipes.front().m_size; j++) {
-			m_board[pipes.at(i).m_nodes[j].m_row][pipes.at(i).m_nodes[j].m_col] = '|';
+			if(pipes.at(i).m_nodes[j].m_symbol == '|') {
+				m_board[pipes.at(i).m_nodes[j].m_row][pipes.at(i).m_nodes[j].m_col] = pipes.at(i).m_nodes[j].m_symbol;
+			}
 		}
 	}
 

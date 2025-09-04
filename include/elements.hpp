@@ -4,17 +4,18 @@
 #include "globals.hpp"
 
 struct Point {
-	Point() : m_row(0), m_col(0) {};
-	Point(int row, int col) : m_row(row), m_col(col) {};
+	Point() : m_row(0), m_col(0), m_symbol(' ') {};
+	Point(int row, int col, char symbol) : m_row(row), m_col(col), m_symbol(symbol) {};
 	int m_row;
 	int m_col;
+	char m_symbol;
 	void assign(int row, int col);
 	void to_string();
 };
 
 struct Bird {
 	Bird() : m_fly(false) {};
-	Point m_body {(ROW/2), 4};
+	Point m_body { (ROW/2), 4, '*' };
 	bool m_fly;
 	void move();
 	void check_collision();

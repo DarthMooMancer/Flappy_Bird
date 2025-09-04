@@ -13,9 +13,10 @@ struct Point {
 };
 
 struct Bird {
-	Bird() : m_fly(false) {};
+	Bird() : m_fly(false), m_score(0) {};
 	Point m_body { (ROW/2), 4, '*' };
 	bool m_fly;
+	int m_score;
 	void move();
 	void check_collision();
 };

@@ -9,7 +9,6 @@
 struct Window {
 	std::array<std::array<char, COL>, ROW> m_board = {};
 	void update_display(Bird &bird, std::vector<Pipe> pipes);
-	void tick(int fps);
 };
 
 #endif
